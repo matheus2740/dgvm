@@ -81,5 +81,5 @@ class constraint(object):
     # TODO: more constraints: on_create, on_destroy
 
 
-# TODO: create an event system. this must be tought carefully as to avoid side-effects and non-determinism
+# TODO: create an event system. this must be thought carefully as to avoid side-effects and non-determinism
 
