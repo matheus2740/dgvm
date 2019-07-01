@@ -244,10 +244,10 @@ class MemberInstructionWrapper(object):
         raise ValueError('Cannot set MemberInstruction after its creation')
 
     def create(self, owner):
-        if self.opcode == 101:
-            print('================================================>>>> CREATE MOVE 101')
-            import traceback
-            traceback.print_stack()
+        # if self.opcode == 101:
+        #     print('================================================>>>> CREATE MOVE 101')
+        #     import traceback
+        #     traceback.print_stack()
         self.i = InstructionMeta(self.func.__name__, (MemberInstruction,), {
             'opcode': self.opcode,
             'mnemonic': self.mnemonic,

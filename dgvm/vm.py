@@ -122,8 +122,6 @@ class LocalVM(object):
                 self.validate_model(model)
                 models.append(model)
                 for member_instruction in [inst for (name, inst) in model.__dict__.items() if isinstance(inst, MemberInstructionWrapper)]:
-                    # member_instruction.create(model)
-                    # model._member_instructions.append(member_instruction)
                     member_instruction.register(self)
 
         self.datamodels = list(models)

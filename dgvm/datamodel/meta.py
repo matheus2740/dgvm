@@ -31,10 +31,9 @@ class DatamodelMeta(type):
                 atr.set_name(key)
                 atr.set_model_name(name)
                 vmattrs[key] = atr
-            # this was moved to vm.load_datamodels to avoid duplicate instruction creation
-            # if isinstance(atr, MemberInstructionWrapper):
-            #     atr.create(cls)
-            #     member_instructions.append(atr)
+            if isinstance(atr, MemberInstructionWrapper):
+                atr.create(cls)
+                member_instructions.append(atr)
         cls._vmattrs = vmattrs
         cls._member_instructions = member_instructions
 

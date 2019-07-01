@@ -162,7 +162,7 @@ class VMTests(unittest.TestCase):
             commit = vm.get_last_commit()
 
             assert hash(commit) is not None
-            assert isinstance(commit[1], Infantry.move)
+            assert isinstance(commit[1], vm.get_instruction(Infantry.move.mnemonic))
             assert i.position == (2, 2)
             pass
 
@@ -337,7 +337,7 @@ class VMTests(unittest.TestCase):
             assert i2.health == 9
 
             try:
-                i1.move(2,2)
+                i1.move(2, 2)
                 assert False
             except ConstraintViolation as e:
                 # assert e.original_message == '<AttributeChangedConstraint: action_limit on action>'
@@ -385,7 +385,7 @@ class VMTests(unittest.TestCase):
             assert i1.health == 0
 
             try:
-                i1.move(2,2)
+                i1.move(2, 2)
                 assert False
             except ValueError as e:
                 # assert e.original_message == 'Cannot move dead infantry'
